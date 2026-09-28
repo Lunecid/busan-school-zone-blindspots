@@ -19,7 +19,7 @@
 
 </div>
 
-> **English summary** — Child pedestrian accidents in Korea happen mostly *outside* designated school zones (≈94% per TAAS). We split Busan's road network into **240,064 points every 30 m**, built **32 spatial features** (child population, child facilities, road environment, land use, slope) with dual 300 m / 50 m buffers in QGIS, and trained an **XGBoost** classifier validated with **geographic block cross-validation** (StratifiedGroupKFold, 10 blocks). With a recall-first threshold of 0.45 the model reaches **recall 0.87** on accident areas (accuracy 83%). We reinterpret **false positives as "policy blind spots"**: high-risk roads that are not (yet) protected, checked with field surveys. Won the **Grand Prize (Mayor of Busan Award)** at the 2025 Busan Big Data Challenge.
+> **English summary** — Child pedestrian accidents in Korea happen mostly *outside* designated school zones (≈94% per TAAS). We split Busan's road network into **points every 30 m**, built **32 spatial features** (child population, child facilities, road environment, land use, slope) with dual 300 m / 50 m buffers in QGIS, and trained an **XGBoost** classifier validated with **geographic block cross-validation** (StratifiedGroupKFold, 10 blocks). Each point is labelled `is_accident` = 1 if a child-pedestrian accident (TAAS, 2020–2024) occurred within 300 m of it; after dropping the 34 points with no slope value, **61,848 of 240,064 points** are positive. With a recall-first threshold of 0.45 the model reaches **recall 0.87** on accident areas (accuracy 83%). We reinterpret **false positives as "policy blind spots"**: high-risk roads that are not (yet) protected, checked with field surveys. Won the **Top Excellence Award (Mayor of Busan Award)** in the Big Data Analysis Division of the 2025 Big Data Utilization Contest.
 
 ---
 
@@ -104,7 +104,7 @@ flowchart LR
 - **경사도**: 등고선을 TIN 보간해 5×5m DEM을 만들고, QGIS `Slope`로 각 지점의 기울기를 뽑았다. 산지가 많은 부산만의 핵심 변수다.
 - **사고 데이터 정제**: 도로와 닿지 않는 사고(아파트 단지·주차장 내부)를 버퍼 교차로 걸러 761건 중 **730건**을 사용했다.
 
-**4-3. 모델.** 변수 간 상관이 높은 고차원 공간 데이터라서 다중공선성과 결측에 강하고 변수 중요도를 볼 수 있는 **XGBoost**를 골랐다. 사고 지역이 소수 클래스(25.8%)라서 `scale_pos_weight`를 자동 산출해 적용했다.
+**4-3. 모델.** 변수 간 상관이 높은 고차원 공간 데이터라서 다중공선성과 결측에 강하고 변수 중요도를 볼 수 있는 **XGBoost**를 골랐다. 라벨(`is_accident`)은 지점 반경 300m 안에서 어린이 보행자 사고(TAAS, 2020–2024)가 있었는지 여부다. 피처 테이블(`analysis/data/road_points.gpkg`)의 240,098개 지점 중 경사도 값이 없는 34개를 빼고 **240,064개** 지점을 썼으며, 그중 **61,848개**가 사고 지점이다. 사고 지역이 소수 클래스(25.8%)라서 `scale_pos_weight`를 자동 산출해 적용했다.
 
 | 하이퍼파라미터 | 값 |
 |---|---|
