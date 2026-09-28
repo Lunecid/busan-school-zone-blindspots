@@ -1,0 +1,6 @@
+geopandas
+xgboost
+scikit-learn
+pandas
+numpy
+fiona

@@ -192,6 +192,9 @@ flowchart LR
 | [`docs/report.pdf`](docs/report.pdf) | 분석 보고서 (11쪽). 참가 신청서는 개인정보가 있어 제외했다. |
 | [`docs/presentation.pdf`](docs/presentation.pdf) | 본선 발표자료 (40쪽). 현장답사 사진 포함 |
 | [`figures/`](figures/) | 보고서 그림 10장 |
+| [`analysis/cpz_xgb.ipynb`](analysis/cpz_xgb.ipynb) | XGBoost 학습과 공간 교차검증 노트북 |
+| [`analysis/modeling.ipynb`](analysis/modeling.ipynb) | 같은 도로 지점 데이터로 모델을 확인하는 노트북 |
+| [`analysis/data/road_points.gpkg`](analysis/data/road_points.gpkg) | 도로중심선 30m 지점 피처 테이블 |
 
 <details>
 <summary><b>참고문헌</b></summary>
