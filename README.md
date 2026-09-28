@@ -71,6 +71,8 @@
 | 어린이 보행자 교통사고 위치 | 좌표 | 2020–2024 | [TAAS 교통사고분석시스템](https://taas.koroad.or.kr/) (지도에서 좌표 수동 취득) |
 
 > 원본 데이터는 각 기관의 이용 조건에 따라 이 저장소에 포함하지 않았습니다.
+>
+> 피처 테이블(`analysis/data/road_points.gpkg`)에서도 부산 데이터 오픈랩 생활인구로 만든 어린이 유동인구 4열(`weekday_h_pop`, `weekday_v_pop`, `weekend_h_pop`, `weekend_v_pop`)은 뺐습니다. 이 데이터의 재배포 조건을 확인하지 못했기 때문입니다. 나머지 열과 240,098개 지점은 그대로입니다. 이 파일로 노트북을 다시 돌리면 유동인구 피처 없이 학습하게 되어 노트북에 남은 출력과 결과가 달라지고, `modeling.ipynb`는 이 열 이름을 직접 쓰는 셀에서 멈춥니다.
 
 ## 4. 분석 방법
 
@@ -194,7 +196,7 @@ flowchart LR
 | [`figures/`](figures/) | 보고서 그림 10장 |
 | [`analysis/cpz_xgb.ipynb`](analysis/cpz_xgb.ipynb) | XGBoost 학습과 공간 교차검증 노트북. 이 노트북은 경도·위도 10×10 격자로 만든 58개 블록을 `GroupKFold(5)`로 나누고 240,098개 지점을 모두 쓴다. 그래서 4-4절의 설정(`StratifiedGroupKFold`, 10개 블록)과 5절의 수치를 그대로 재현하지는 않는다. |
 | [`analysis/modeling.ipynb`](analysis/modeling.ipynb) | 초기 탐색 노트북(RandomForest, 3단계 위험등급). 지점을 무작위로 나눠 공간 누수가 있으므로, 여기 나온 점수는 보고한 결과가 아니다. |
-| [`analysis/data/road_points.gpkg`](analysis/data/road_points.gpkg) | 도로중심선 30m 지점 피처 테이블 |
+| [`analysis/data/road_points.gpkg`](analysis/data/road_points.gpkg) | 도로중심선 30m 지점 피처 테이블. 생활인구 4열은 뺐다([3절](#3-데이터) 참고). |
 
 <details>
 <summary><b>참고문헌</b></summary>
