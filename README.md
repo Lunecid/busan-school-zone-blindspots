@@ -192,7 +192,7 @@ flowchart LR
 | [`docs/report.pdf`](docs/report.pdf) | 분석 보고서 (11쪽). 참가 신청서는 개인정보가 있어 제외했다. |
 | [`docs/presentation.pdf`](docs/presentation.pdf) | 본선 발표자료 (40쪽). 현장답사 사진 포함 |
 | [`figures/`](figures/) | 보고서 그림 10장 |
-| [`analysis/cpz_xgb.ipynb`](analysis/cpz_xgb.ipynb) | XGBoost 학습과 공간 교차검증 노트북 |
+| [`analysis/cpz_xgb.ipynb`](analysis/cpz_xgb.ipynb) | XGBoost 학습과 공간 교차검증 노트북. 이 노트북은 경도·위도 10×10 격자로 만든 58개 블록을 `GroupKFold(5)`로 나누고 240,098개 지점을 모두 쓴다. 그래서 4-4절의 설정(`StratifiedGroupKFold`, 10개 블록)과 5절의 수치를 그대로 재현하지는 않는다. |
 | [`analysis/modeling.ipynb`](analysis/modeling.ipynb) | 초기 탐색 노트북(RandomForest, 3단계 위험등급). 지점을 무작위로 나눠 공간 누수가 있으므로, 여기 나온 점수는 보고한 결과가 아니다. |
 | [`analysis/data/road_points.gpkg`](analysis/data/road_points.gpkg) | 도로중심선 30m 지점 피처 테이블 |
 
