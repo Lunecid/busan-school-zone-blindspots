@@ -193,7 +193,7 @@ flowchart LR
 | [`docs/presentation.pdf`](docs/presentation.pdf) | 본선 발표자료 (40쪽). 현장답사 사진 포함 |
 | [`figures/`](figures/) | 보고서 그림 10장 |
 | [`analysis/cpz_xgb.ipynb`](analysis/cpz_xgb.ipynb) | XGBoost 학습과 공간 교차검증 노트북 |
-| [`analysis/modeling.ipynb`](analysis/modeling.ipynb) | 같은 도로 지점 데이터로 모델을 확인하는 노트북 |
+| [`analysis/modeling.ipynb`](analysis/modeling.ipynb) | 초기 탐색 노트북(RandomForest, 3단계 위험등급). 지점을 무작위로 나눠 공간 누수가 있으므로, 여기 나온 점수는 보고한 결과가 아니다. |
 | [`analysis/data/road_points.gpkg`](analysis/data/road_points.gpkg) | 도로중심선 30m 지점 피처 테이블 |
 
 <details>
